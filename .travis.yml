@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tuakin/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run tuakin/docker-react npm run test -- --coverage
